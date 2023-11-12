@@ -1,0 +1,8 @@
+{
+  "name": "teaching",
+  "version": "1.0.0",
+  "description": "Helping out the next generation of software engineers",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
