@@ -1,6 +1,6 @@
 export function returnAllTypesObject() : {[key : string] : any} {
   return {
-    typeString: "This is a string",
+    typeString: "This is a test from VSCode",
     typeNumber: 77,
     typeBoolean: true,
     typeArray: [27,77,87],
