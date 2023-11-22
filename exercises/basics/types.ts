@@ -1,5 +1,4 @@
 export function returnAllTypesObject() : {[key : string] : any} {
-  // @TODO implement
   return {
     typeString: "This is a string",
     typeNumber: 77,
