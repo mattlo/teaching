@@ -1,0 +1,52 @@
+version: "2.1"
+orbs:
+  aws-code-deploy: "circleci/aws-code-deploy@2.0.0"
+  aws-s3: "circleci/aws-s3@2.0.0"
+
+aliases:
+  - &common-images
+    - image: cimg/node:20.9.0
+
+  - &restore-cache
+    keys:
+      - pnpm-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+      # Fallback in case checksum fails
+      - pnpm-{{ .Branch }}-
+
+  - &save-cache
+    paths:
+      - node_modules
+      - ~/.pnpm-store
+    key: pnpm-{{ checksum "pnpm-lock.yaml" }}
+
+  - &install-dependencies
+    name: Install Dependencies
+    command: pnpm install
+
+jobs:
+  test-and-build:
+    working_directory: ~/repo
+
+    docker:
+      - <<: *common-images
+      - image: mongo:4.0.1
+
+    parameters:
+      NODE_ENV:
+        type: string
+        default: development
+
+    steps:
+      - checkout
+      - restore_cache: *restore-cache
+      - run: *install-dependencies
+      - save_cache: *save-cache
+      - run: pnpm run test
+
+workflows:
+  version: 2
+
+  branch-build:
+    jobs:
+      - test-and-build:
+          NODE_ENV: development
