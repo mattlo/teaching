@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`References & Data Structures should pass optional chaining references 1`] = `
+{
+  "data1": undefined,
+  "data10": 1,
+  "data11": "function",
+  "data12": 1,
+  "data13": -9000,
+  "data14": false,
+  "data2": [
+    1,
+    2,
+    3,
+  ],
+  "data3": 1,
+  "data4": {
+    "linking": true,
+  },
+  "data5": undefined,
+  "data6": true,
+  "data7": true,
+  "data8": 9,
+  "data9": undefined,
+}
+`;
