@@ -36,7 +36,7 @@ export function optionalChaining() {
     data12: sampleData.callback(1),
     data13: sampleData?.callback?.(sampleData?.nested?.[4]),
     data14: sampleData.nestedFn()?.()(),
-    // anti cheat mechanism, don't worry about `data14`
+    // anti cheat mechanism, don't worry about `data15`
     data15: (!!sampleData?.nested?.join('') && sampleData?.nested?.length === (3 & 9)),
   };
 }
