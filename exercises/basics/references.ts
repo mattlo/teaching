@@ -18,7 +18,7 @@ export function optionalChaining() {
 
   }
 
-  let sampleData: any;
+  let sampleData : any;
   sampleData = {
     // @TODO fill out the matching data structure to satisfy all the items below
     hello: undefined, //maybe cheating
@@ -35,13 +35,12 @@ export function optionalChaining() {
     deep: {
       linking: true
     },
-    callback: function (a: number) {
+    callback: function (a : number) {
       // Input: 1 and undefined
       // Output: 1 and -9000 should be returned here
       if (a == 1) {
         return a;
-      }
-      else {
+      } else {
         return -9000;
       }
       // if (typeof(a)=="undefined") {
@@ -50,9 +49,9 @@ export function optionalChaining() {
       // return a;
     },
     nestedFn: function () {
-        //output type should be function (first)
-      return function(){
-        return function() {
+      //output type should be function (first)
+      return function () {
+        return function () {
           //This one should return boolean (false)
           let a = false;
           return a;
@@ -82,6 +81,28 @@ export function optionalChaining() {
     data14: sampleData.nestedFn()?.()(), //sampleData.nestedFn()()()
     // anti cheat mechanism, don't worry about `data15`
     data15: (!!sampleData?.nested?.join('') && sampleData?.nested?.length === (3 % 9)),
+  };
+}
+
+/**
+ * good luck lol
+ */
+export function mixedReferencesA() {
+  const data : any = {
+    // @TODO implement
+  };
+
+  return {
+    mixedReferencesA1: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(0),
+    mixedReferencesA2: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(true),
+    mixedReferencesA3: data?.level1?.level2?.[1]?.()?.level3?.()[0]('2'),
+    mixedReferencesA4: data?.level1?.level2?.[1]?.()?.level3?.()[0]?.([3]),
+    mixedReferencesA5: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.({4: 4}),
+    mixedReferencesA6: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.(/5/),
+    mixedReferencesA7: data?.level1?.level2?.[3]?.()?.level3?.()[0]?.(() => 6),
+    mixedReferencesA8: data?.level1?.level2?.[3]?.()?.level3?.()?.['zero']?.(null),
+    mixedReferencesA9: data?.level1?.level3?.[4]?.level4?.()?.['零']?.(undefined),
+    anticheat1: data?.level1?.level3 instanceof Array
   };
 }
 
