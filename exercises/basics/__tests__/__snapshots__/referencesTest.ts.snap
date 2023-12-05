@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`References & Data Structures should match references A snapshot 1`] = `
+{
+  "anticheat1": true,
+  "mixedReferencesA1": "table",
+  "mixedReferencesA2": "tennis",
+  "mixedReferencesA3": "keeps",
+  "mixedReferencesA4": "our",
+  "mixedReferencesA5": "minds",
+  "mixedReferencesA6": "sharp",
+  "mixedReferencesA7": "and",
+  "mixedReferencesA8": "body",
+  "mixedReferencesA9": "sharp",
+}
+`;
+
 exports[`References & Data Structures should pass optional chaining references 1`] = `
 {
   "data1": undefined,
