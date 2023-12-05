@@ -14,9 +14,53 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
  */
 export function optionalChaining() {
-  const sampleData : any = {
+  function callback() {
+
+  }
+
+  let sampleData: any;
+  sampleData = {
     // @TODO fill out the matching data structure to satisfy all the items below
+    hello: undefined, //maybe cheating
+    nested: [1,
+      2,
+      3,
+    ],
+    // nested: {
+    //   0 : 1,
+    //   join: function () {
+    //
+    //   }
+    // },
+    deep: {
+      linking: true
+    },
+    callback: function (a: number) {
+      // Input: 1 and undefined
+      // Output: 1 and -9000 should be returned here
+      if (a == 1) {
+        return a;
+      }
+      else {
+        return -9000;
+      }
+      // if (typeof(a)=="undefined") {
+      //   return -9000;
+      // }
+      // return a;
+    },
+    nestedFn: function () {
+        //output type should be function (first)
+      return function(){
+        return function() {
+          //This one should return boolean (false)
+          let a = false;
+          return a;
+        }
+      }
+    }
   };
+
 
   const key = 0;
   const key2 = 3 - 1;
@@ -26,16 +70,16 @@ export function optionalChaining() {
     data2: sampleData?.nested,
     data3: sampleData?.nested?.[key],
     data4: sampleData?.deep,
-    data5: sampleData?.linking,
+    data5: sampleData?.linking, // pass
     data6: sampleData.deep?.linking,
     data7: sampleData.deep.linking,
     data8: sampleData.nested[key2] * sampleData?.nested?.[Math?.abs?.((2 * (3 * -1)) + (Math?.pow?.(2, 2)))],
-    data9: sampleData.nested[4],
+    data9: sampleData.nested[4], //pass
     data10: sampleData?.nested?.[0],
-    data11: typeof sampleData?.callback,
-    data12: sampleData.callback(1),
-    data13: sampleData?.callback?.(sampleData?.nested?.[4]),
-    data14: sampleData.nestedFn()?.()(),
+    data11: typeof sampleData?.callback, //pass
+    data12: sampleData.callback(1), //pass
+    data13: sampleData?.callback?.(sampleData?.nested?.[4]),  //sampleData.callback(undefined),
+    data14: sampleData.nestedFn()?.()(), //sampleData.nestedFn()()()
     // anti cheat mechanism, don't worry about `data15`
     data15: (!!sampleData?.nested?.join('') && sampleData?.nested?.length === (3 % 9)),
   };

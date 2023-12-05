@@ -8,6 +8,7 @@ exports[`References & Data Structures should pass optional chaining references 1
   "data12": 1,
   "data13": -9000,
   "data14": false,
+  "data15": true,
   "data2": [
     1,
     2,
