@@ -148,24 +148,50 @@ export function mixedReferencesA() {
         function(){
           return {
             level3: function(){
-              return [
-                function(a:any) {
-                  if (a() === 6) {
+              return {
+                "0" : function (a:any){
+                  if(a() === 6) {
                     return "and"
                   }
                 },
-              ]
-              // return {
-              //   'zero' : function(a:any) {
-              //     if (a=== null){
-              //       return "body";
-              //     }
-              //   }
-              // }
+                "zero" : function(a:any) {
+                  if(a === null) {
+                    return "body"
+                  }
+                }
+              }
             }
           }
         },
       ],
+      // level3: {
+      //   4: {
+      //     level4: function(){
+      //       return {
+      //         '零' : function(a:any) {
+      //           if(a === undefined) {
+      //             return "sharp"
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      level3: ["0",
+        "1",
+        "2",
+        "3",
+        {level4 : function() {
+          return {
+            '零': function(a:any) {
+              if (a===undefined) {
+                return "sharp"
+              }
+            }
+          }
+          }}
+
+      ]
     }
   };
 
