@@ -90,13 +90,105 @@ export function optionalChaining() {
 export function mixedReferencesA() {
   const data : any = {
     // @TODO implement
+    level1: {
+      level2: [
+        function(){
+          return {
+            level3: function() {
+            return [
+              function(a:any){
+                if (a==0) {
+                  a = "table"
+                }
+                else if (a==true){
+                  a = "tennis"
+                }
+                return a;
+              }
+            ]
+          }
+        }
+        },
+        function(){
+          return {
+            level3: function(){
+              return [
+                function(a:any) {
+                  let array_conditon = [3]
+                  if (a=="2") {
+                    a = "keeps";
+                  }
+                  else if (array_conditon) {
+                    return "our"
+                  }
+                  return a;
+                }
+              ]
+            }
+          }
+        },
+        function(){
+          return {
+            level3: function(){
+              return [
+                function(a:any) {
+                  let object = {'4':4}
+                  // let regex = /5/
+                  if (a["4"] === object["4"]) {
+                    return "minds"
+                  }
+                  else {
+                    return "sharp"
+                  }
+
+                }
+              ]
+            }
+          }
+        },
+        function(){
+          return {
+            level3: function(){
+              return {
+                "0" : function (a:any){
+                  if(a() === 6) {
+                    return "and"
+                  }
+                },
+                "zero" : function(a:any) {
+                  if(a === null) {
+                    return "body"
+                  }
+                }
+              }
+            }
+          }
+        },
+      ],
+      level3: ["0",
+        "1",
+        "2",
+        "3",
+        {
+          level4 : function() {
+          return {
+            '零': function(a:any) {
+              if (a===undefined) {
+                return "sharp"
+              }
+            }
+          }
+          }
+        }
+      ]
+    }
   };
 
   return {
     mixedReferencesA1: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(0),
     mixedReferencesA2: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(true),
     mixedReferencesA3: data?.level1?.level2?.[1]?.()?.level3?.()[0]('2'),
-    mixedReferencesA4: data?.level1?.level2?.[1]?.()?.level3?.()[0]?.([3]),
+    mixedReferencesA4: data?.level1?.level2?.[1]?.()?.level3?.()[0]?.([3]), 
     mixedReferencesA5: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.({4: 4}),
     mixedReferencesA6: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.(/5/),
     mixedReferencesA7: data?.level1?.level2?.[3]?.()?.level3?.()[0]?.(() => 6),
