@@ -93,7 +93,8 @@ export function mixedReferencesA() {
     level1: {
       level2: [
         function(){
-          return {level3: function() {
+          return {
+            level3: function() {
             return [
               function(a:any){
                 if (a==0) {
@@ -132,7 +133,7 @@ export function mixedReferencesA() {
               return [
                 function(a:any) {
                   let object = {'4':4}
-                  let regex = /5/
+                  // let regex = /5/
                   if (a["4"] === object["4"]) {
                     return "minds"
                   }
@@ -164,24 +165,12 @@ export function mixedReferencesA() {
           }
         },
       ],
-      // level3: {
-      //   4: {
-      //     level4: function(){
-      //       return {
-      //         '零' : function(a:any) {
-      //           if(a === undefined) {
-      //             return "sharp"
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
       level3: ["0",
         "1",
         "2",
         "3",
-        {level4 : function() {
+        {
+          level4 : function() {
           return {
             '零': function(a:any) {
               if (a===undefined) {
@@ -189,8 +178,8 @@ export function mixedReferencesA() {
               }
             }
           }
-          }}
-
+          }
+        }
       ]
     }
   };
