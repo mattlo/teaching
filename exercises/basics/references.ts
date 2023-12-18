@@ -84,9 +84,6 @@ export function optionalChaining() {
   };
 }
 
-/**
- * good luck lol
- */
 export function mixedReferencesA() {
   const data : any = {
     // @TODO implement
@@ -188,13 +185,48 @@ export function mixedReferencesA() {
     mixedReferencesA1: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(0),
     mixedReferencesA2: data?.level1?.level2?.[0]?.()?.level3?.()[0]?.(true),
     mixedReferencesA3: data?.level1?.level2?.[1]?.()?.level3?.()[0]('2'),
-    mixedReferencesA4: data?.level1?.level2?.[1]?.()?.level3?.()[0]?.([3]), 
+    mixedReferencesA4: data?.level1?.level2?.[1]?.()?.level3?.()[0]?.([3]),
     mixedReferencesA5: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.({4: 4}),
     mixedReferencesA6: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.(/5/),
     mixedReferencesA7: data?.level1?.level2?.[3]?.()?.level3?.()[0]?.(() => 6),
     mixedReferencesA8: data?.level1?.level2?.[3]?.()?.level3?.()?.['zero']?.(null),
     mixedReferencesA9: data?.level1?.level3?.[4]?.level4?.()?.['零']?.(undefined),
     anticheat1: data?.level1?.level3 instanceof Array
+  };
+}
+
+/**
+ * Tip: look up [].push on MDN
+ * Tip: You will need to program more than usual to pass this test
+ * Tip: Knowing order of operations will mkae thigns easier
+ * Tip: Do not make the parameter name the same as `data`, it will not work properly
+ * Tip: Parameter type should be `any[]`
+ * Tip: you need to read very carefully, understand the test first, then write out logic, then code
+ */
+export function mixedReferencesB() {
+  const data : any = [
+    // @TODO impl
+  ];
+
+  // do not alter lines below
+  // level 1
+  const results : any[] = [JSON.stringify(data)];
+
+  return () => {
+    // level 2
+    results.push(JSON.stringify(data?.[0]?.(data)))
+
+    return () => {
+      // level 2
+      results.push(JSON.stringify(data?.[2]?.(data)))
+
+      return () => {
+        // level 3
+        results.push(JSON.stringify(data?.[0]?.(data?.[2]?.(data))));
+
+        return results;
+      }
+    }
   };
 }
 

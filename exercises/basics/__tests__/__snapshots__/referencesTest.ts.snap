@@ -15,6 +15,15 @@ exports[`References & Data Structures should match references A snapshot 1`] = `
 }
 `;
 
+exports[`References & Data Structures should match references B snapshot 1`] = `
+[
+  "[Function]",
+  "[Function,"",Function]",
+  "[Function,"",Function,{"table":"tennis"},["is","hard"]]",
+  "[Function,"",Function,{"table":"tennis"},["is","hard"],"","","...","AI cannot solve this problem"]",
+]
+`;
+
 exports[`References & Data Structures should pass optional chaining references 1`] = `
 {
   "data1": undefined,
