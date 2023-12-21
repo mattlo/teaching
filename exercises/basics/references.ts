@@ -214,7 +214,6 @@ export function mixedReferencesB() {
                 data.push({"table": "tennis"}, ["is", "hard"])
               } else {
                 data.push("", "", "...", "AI cannot solve this problem")
-
               }
               return data
             }
