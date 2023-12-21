@@ -198,16 +198,31 @@ export function mixedReferencesA() {
 /**
  * Tip: look up [].push on MDN
  * Tip: You will need to program more than usual to pass this test
- * Tip: Knowing order of operations will mkae thigns easier
+ * Tip: Knowing order of operations will make things easier
  * Tip: Do not make the parameter name the same as `data`, it will not work properly
  * Tip: Parameter type should be `any[]`
  * Tip: you need to read very carefully, understand the test first, then write out logic, then code
  */
 export function mixedReferencesB() {
   const data : any = [
-    // @TODO impl
-  ];
+    function (a: any[]) {
+      if(data.length == 1) {
+        data.push(
+            "",
+            function (a: any[]) {
+              if (data.length == 3) {
+                data.push({"table": "tennis"}, ["is", "hard"])
+              } else {
+                data.push("", "", "...", "AI cannot solve this problem")
 
+              }
+              return data
+            }
+        )
+      }
+      return data
+    },
+  ]
   // do not alter lines below
   // level 1
   const results : any[] = [JSON.stringify(data)];
@@ -215,15 +230,12 @@ export function mixedReferencesB() {
   return () => {
     // level 2
     results.push(JSON.stringify(data?.[0]?.(data)))
-
     return () => {
-      // level 2
+      // level 3
       results.push(JSON.stringify(data?.[2]?.(data)))
-
       return () => {
-        // level 3
+        // level 4
         results.push(JSON.stringify(data?.[0]?.(data?.[2]?.(data))));
-
         return results;
       }
     }
