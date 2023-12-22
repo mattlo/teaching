@@ -1,0 +1,170 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/extensions": "off",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    // @TODO remove this once eslint+typescript+babel is fixed!
+    "no-unused-vars": 0,
+    "import/no-unresolved": "error",
+    // disable requiring trailing commas because it might be nice to revert to
+    // being JSON at some point, and I don't want to make big changes now.
+    "comma-dangle": 0,
+    "object-curly-spacing": [
+      2,
+      "never"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/forbid-prop-types": [
+      0
+    ],
+    // sometimes eslint doesn't know the context
+    "react/no-unused-prop-types": [
+      0
+    ],
+    // I prefer setting state during after it's mounted, it's more
+    // in line for whats actually happening under the hood
+    "react/no-did-mount-set-state": 0,
+    "import/imports-first": [
+      0
+    ],
+    "import/no-named-as-default": [
+      0
+    ],
+    // collides with typescript
+    "no-restricted-globals": 0,
+    // weird style
+    "new-parens": 0,
+    // mongo returns `_id`s
+    "no-underscore-dangle": 0,
+    // @TODO eventually turn this back on
+    "class-methods-use-this": 0,
+    "global-require": 0,
+    "import/prefer-default-export": 0,
+    // need to specify to ignore test dirs
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*Test.js",
+          "**/*Test.tsx"
+        ]
+      }
+    ],
+    "import/no-cycle": 0,
+    "camelcase": 0,
+    "react/require-default-props": 0,
+    // @TODO eventually turn this back on
+    "react/destructuring-assignment": 0,
+    "react/no-access-state-in-setstate": 0,
+    "react/no-array-index-key": 0,
+    "react/jsx-key": 2,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-tabindex": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/sort-comp": [
+      0,
+      {
+        "order": [
+          "static-methods",
+          "lifecycle",
+          "instance-variables",
+          "everything-else",
+          "render"
+        ],
+        "groups": {
+          "lifecycle": [
+            "displayName",
+            "propTypes",
+            "contextTypes",
+            "childContextTypes",
+            "mixins",
+            "statics",
+            "defaultProps",
+            "constructor",
+            "getDefaultProps",
+            "state",
+            "getInitialState",
+            "getChildContext",
+            "getDerivedStateFromProps",
+            "componentWillMount",
+            "UNSAFE_componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "UNSAFE_componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "UNSAFE_componentWillUpdate",
+            "getSnapshotBeforeUpdate",
+            "componentDidUpdate",
+            "componentDidCatch",
+            "componentWillUnmount"
+          ]
+        }
+      }
+    ]
+  },
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*Test.js",
+        "*Test.ts",
+        "*Test.tsx",
+        "*Tests.js",
+        "*Tests.ts",
+        "*Tests.tsx"
+      ],
+      "rules": {
+        "import/first": 0
+      }
+    },
+    {
+      "files": "*.d.ts",
+      "rules": {
+        "no-shadow": "off"
+      }
+    },
+    {
+      "files": "*.tsx",
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}

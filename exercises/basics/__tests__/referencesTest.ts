@@ -1,4 +1,6 @@
-import {describe, it, expect, jest} from '@jest/globals';
+import {
+  describe, it, expect
+} from '@jest/globals';
 import {mixedReferencesA, mixedReferencesB, optionalChaining} from '../references';
 
 describe('References & Data Structures', () => {
@@ -8,9 +10,9 @@ describe('References & Data Structures', () => {
 
   it('should match references A snapshot', () => {
     expect(mixedReferencesA()).toMatchSnapshot();
-  })
+  });
 
   it('should match references B snapshot', () => {
-    expect(mixedReferencesB()()()().map(result => result.replace(/null/g, 'Function'))).toMatchSnapshot();
-  })
+    expect(mixedReferencesB()()()().map((result) => result.replace(/null/g, 'Function'))).toMatchSnapshot();
+  });
 });

@@ -21,7 +21,7 @@ export function optionalChaining() {
   let sampleData : any;
   sampleData = {
     // @TODO fill out the matching data structure to satisfy all the items below
-    hello: undefined, //maybe cheating
+    hello: undefined, // maybe cheating
     nested: [1,
       2,
       3,
@@ -35,31 +35,30 @@ export function optionalChaining() {
     deep: {
       linking: true
     },
-    callback: function (a : number) {
+    callback(a : number) {
       // Input: 1 and undefined
       // Output: 1 and -9000 should be returned here
       if (a == 1) {
         return a;
-      } else {
-        return -9000;
       }
+      return -9000;
+
       // if (typeof(a)=="undefined") {
       //   return -9000;
       // }
       // return a;
     },
-    nestedFn: function () {
-      //output type should be function (first)
+    nestedFn() {
+      // output type should be function (first)
       return function () {
         return function () {
-          //This one should return boolean (false)
-          let a = false;
+          // This one should return boolean (false)
+          const a = false;
           return a;
-        }
-      }
+        };
+      };
     }
   };
-
 
   const key = 0;
   const key2 = 3 - 1;
@@ -72,13 +71,13 @@ export function optionalChaining() {
     data5: sampleData?.linking, // pass
     data6: sampleData.deep?.linking,
     data7: sampleData.deep.linking,
-    data8: sampleData.nested[key2] * sampleData?.nested?.[Math?.abs?.((2 * (3 * -1)) + (Math?.pow?.(2, 2)))],
-    data9: sampleData.nested[4], //pass
+    data8: sampleData.nested[key2] * sampleData?.nested?.[Math?.abs?.((2 * (3 * -1)) + (2 ** 2))],
+    data9: sampleData.nested[4], // pass
     data10: sampleData?.nested?.[0],
-    data11: typeof sampleData?.callback, //pass
-    data12: sampleData.callback(1), //pass
-    data13: sampleData?.callback?.(sampleData?.nested?.[4]),  //sampleData.callback(undefined),
-    data14: sampleData.nestedFn()?.()(), //sampleData.nestedFn()()()
+    data11: typeof sampleData?.callback, // pass
+    data12: sampleData.callback(1), // pass
+    data13: sampleData?.callback?.(sampleData?.nested?.[4]), // sampleData.callback(undefined),
+    data14: sampleData.nestedFn()?.()(), // sampleData.nestedFn()()()
     // anti cheat mechanism, don't worry about `data15`
     data15: (!!sampleData?.nested?.join('') && sampleData?.nested?.length === (3 % 9)),
   };
@@ -89,92 +88,88 @@ export function mixedReferencesA() {
     // @TODO implement
     level1: {
       level2: [
-        function(){
+        function () {
           return {
-            level3: function() {
-            return [
-              function(a:any){
-                if (a==0) {
-                  a = "table"
-                }
-                else if (a==true){
-                  a = "tennis"
-                }
-                return a;
-              }
-            ]
-          }
-        }
-        },
-        function(){
-          return {
-            level3: function(){
+            level3() {
               return [
-                function(a:any) {
-                  let array_conditon = [3]
-                  if (a=="2") {
-                    a = "keeps";
-                  }
-                  else if (array_conditon) {
-                    return "our"
+                function (a:any) {
+                  if (a == 0) {
+                    a = 'table';
+                  } else if (a == true) {
+                    a = 'tennis';
                   }
                   return a;
                 }
-              ]
+              ];
             }
-          }
+          };
         },
-        function(){
+        function () {
           return {
-            level3: function(){
+            level3() {
               return [
-                function(a:any) {
-                  let object = {'4':4}
-                  // let regex = /5/
-                  if (a["4"] === object["4"]) {
-                    return "minds"
+                function (a:any) {
+                  const array_conditon = [3];
+                  if (a == '2') {
+                    a = 'keeps';
+                  } else if (array_conditon) {
+                    return 'our';
                   }
-                  else {
-                    return "sharp"
+                  return a;
+                }
+              ];
+            }
+          };
+        },
+        function () {
+          return {
+            level3() {
+              return [
+                function (a:any) {
+                  const object = {4: 4};
+                  // let regex = /5/
+                  if (a['4'] === object['4']) {
+                    return 'minds';
                   }
 
+                  return 'sharp';
                 }
-              ]
+              ];
             }
-          }
+          };
         },
-        function(){
+        function () {
           return {
-            level3: function(){
+            level3() {
               return {
-                "0" : function (a:any){
-                  if(a() === 6) {
-                    return "and"
+                0(a:any) {
+                  if (a() === 6) {
+                    return 'and';
                   }
                 },
-                "zero" : function(a:any) {
-                  if(a === null) {
-                    return "body"
+                zero(a:any) {
+                  if (a === null) {
+                    return 'body';
                   }
                 }
-              }
+              };
             }
-          }
+          };
         },
       ],
-      level3: ["0",
-        "1",
-        "2",
-        "3",
+      level3: ['0',
+        '1',
+        '2',
+        '3',
         {
-          level4 : function() {
-          return {
-            '零': function(a:any) {
-              if (a===undefined) {
-                return "sharp"
+          level4() {
+            return {
+              零(a:any) {
+                if (a === undefined) {
+                  return 'sharp';
+                }
               }
-            }
-          }
+            };
           }
         }
       ]
@@ -189,7 +184,7 @@ export function mixedReferencesA() {
     mixedReferencesA5: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.({4: 4}),
     mixedReferencesA6: data?.level1?.level2?.[2]?.()?.level3?.()[0]?.(/5/),
     mixedReferencesA7: data?.level1?.level2?.[3]?.()?.level3?.()[0]?.(() => 6),
-    mixedReferencesA8: data?.level1?.level2?.[3]?.()?.level3?.()?.['zero']?.(null),
+    mixedReferencesA8: data?.level1?.level2?.[3]?.()?.level3?.()?.zero?.(null),
     mixedReferencesA9: data?.level1?.level3?.[4]?.level4?.()?.['零']?.(undefined),
     anticheat1: data?.level1?.level3 instanceof Array
   };
@@ -206,38 +201,38 @@ export function mixedReferencesA() {
 export function mixedReferencesB() {
   const data : any = [
     function (a: any[]) {
-      if(data.length == 1) {
+      if (data.length == 1) {
         data.push(
-            "",
-            function (a: any[]) {
-              if (data.length == 3) {
-                data.push({"table": "tennis"}, ["is", "hard"])
-              } else {
-                data.push("", "", "...", "AI cannot solve this problem")
-              }
-              return data
+          '',
+          (a: any[]) => {
+            if (data.length == 3) {
+              data.push({table: 'tennis'}, ['is', 'hard']);
+            } else {
+              data.push('', '', '...', 'AI cannot solve this problem');
             }
-        )
+            return data;
+          }
+        );
       }
-      return data
+      return data;
     },
-  ]
+  ];
   // do not alter lines below
   // level 1
   const results : any[] = [JSON.stringify(data)];
 
   return () => {
     // level 2
-    results.push(JSON.stringify(data?.[0]?.(data)))
+    results.push(JSON.stringify(data?.[0]?.(data)));
     return () => {
       // level 3
-      results.push(JSON.stringify(data?.[2]?.(data)))
+      results.push(JSON.stringify(data?.[2]?.(data)));
       return () => {
         // level 4
         results.push(JSON.stringify(data?.[0]?.(data?.[2]?.(data))));
         return results;
-      }
-    }
+      };
+    };
   };
 }
 

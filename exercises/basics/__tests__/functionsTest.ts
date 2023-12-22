@@ -1,4 +1,6 @@
-import {describe, it, expect, jest} from '@jest/globals';
+import {
+  describe, it, expect, jest
+} from '@jest/globals';
 import {
   curryConcept1, returnObjectWithMethodNamedBobThatReturnsFunctionalDeclarationNamedBob,
   returnFunctionalDeclarationNamedBob,
@@ -33,8 +35,8 @@ describe('Functions', () => {
       [...Array(index + 1)].reduce(
         (fn) => fn(1),
         returnNestedFunction10LevelsDeep
-      )
-    })
+      );
+    });
   });
 
   it('should return curried call to equal 9', () => {
