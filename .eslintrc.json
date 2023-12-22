@@ -18,6 +18,8 @@
     }
   },
   "rules": {
+    "consistent-return": "off",
+    "no-param-reassign": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "import/extensions": "off",
     "quotes": [

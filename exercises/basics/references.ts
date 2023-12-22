@@ -71,6 +71,7 @@ export function optionalChaining() {
     data5: sampleData?.linking, // pass
     data6: sampleData.deep?.linking,
     data7: sampleData.deep.linking,
+    // eslint-disable-next-line
     data8: sampleData.nested[key2] * sampleData?.nested?.[Math?.abs?.((2 * (3 * -1)) + (2 ** 2))],
     data9: sampleData.nested[4], // pass
     data10: sampleData?.nested?.[0],
