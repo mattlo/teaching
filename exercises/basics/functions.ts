@@ -1,5 +1,5 @@
 export function returnFunctionalExpression() : any {
-  return function () {};
+  return () => {};
 }
 export function returnFunctionalDeclarationNamedBob() : any {
   return function bob() {
