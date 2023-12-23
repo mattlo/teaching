@@ -1,7 +1,7 @@
 /**
  * Optional chaining is useful to calling references where things may be undefined
- * All the tests written use optional chaining so it's important to know
- * how it works so you can reverse engineer the tests
+ * All the tests written use optional chaining, so it's important to know
+ * how it works, so you can reverse engineer the tests
  *
  * Task: Reverse engineer the return value to recreate `sampleData`
  *
@@ -38,11 +38,6 @@ export function optionalChaining() {
         return a;
       }
       return -9000;
-
-      // if (typeof(a)=="undefined") {
-      //   return -9000;
-      // }
-      // return a;
     },
     nestedFn() {
       // output type should be function (first)
@@ -100,10 +95,10 @@ export function mixedReferencesA() {
           level3() {
             return [
               (a:any) => {
-                const array_conditon = [3];
+                const array_condition = [3];
                 if (a === '2') {
                   a = 'keeps';
-                } else if (array_conditon) {
+                } else if (array_condition) {
                   return 'our';
                 }
                 return a;
