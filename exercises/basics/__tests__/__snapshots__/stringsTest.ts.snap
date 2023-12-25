@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Strings Regular expressions 1`] = `
+[
+  true,
+  true,
+  [
+    "Attackers",
+    "risk",
+    "energy",
+    "Depletion",
+  ],
+  [
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    ".",
+  ],
+  true,
+  true,
+]
+`;
+
+exports[`Strings String methods 1`] = `
+[
+  "hello",
+  "WORLD",
+  "d",
+  0,
+  1,
+  2,
+  0,
+  "tennis",
+  " 
+more spin
+ ",
+  "
+more spin
+ ",
+  "more spin",
+]
+`;
