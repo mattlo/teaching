@@ -1,7 +1,7 @@
 /**
  * Optional chaining is useful to calling references where things may be undefined
- * All the tests written use optional chaining so it's important to know
- * how it works so you can reverse engineer the tests
+ * All the tests written use optional chaining, so it's important to know
+ * how it works, so you can reverse engineer the tests
  *
  * Task: Reverse engineer the return value to recreate `sampleData`
  *
@@ -14,12 +14,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
  */
 export function optionalChaining() {
-  function callback() {
-
-  }
-
-  let sampleData : any;
-  sampleData = {
+  const sampleData = {
     // @TODO fill out the matching data structure to satisfy all the items below
     hello: undefined, // maybe cheating
     nested: [1,
@@ -32,30 +27,24 @@ export function optionalChaining() {
     //
     //   }
     // },
+    linking: undefined,
     deep: {
       linking: true
     },
     callback(a : number) {
       // Input: 1 and undefined
       // Output: 1 and -9000 should be returned here
-      if (a == 1) {
+      if (a === 1) {
         return a;
       }
       return -9000;
-
-      // if (typeof(a)=="undefined") {
-      //   return -9000;
-      // }
-      // return a;
     },
     nestedFn() {
       // output type should be function (first)
-      return function () {
-        return function () {
-          // This one should return boolean (false)
-          const a = false;
-          return a;
-        };
+      return () => () => {
+        // This one should return boolean (false)
+        const a = false;
+        return a;
       };
     }
   };
@@ -86,77 +75,68 @@ export function optionalChaining() {
 
 export function mixedReferencesA() {
   const data : any = {
-    // @TODO implement
     level1: {
       level2: [
-        function () {
-          return {
-            level3() {
-              return [
-                function (a:any) {
-                  if (a == 0) {
-                    a = 'table';
-                  } else if (a == true) {
-                    a = 'tennis';
-                  }
-                  return a;
+        () => ({
+          level3() {
+            return [
+              (a:any) => {
+                if (a === 0) {
+                  a = 'table';
+                } else if (a === true) {
+                  a = 'tennis';
                 }
-              ];
-            }
-          };
-        },
-        function () {
-          return {
-            level3() {
-              return [
-                function (a:any) {
-                  const array_conditon = [3];
-                  if (a == '2') {
-                    a = 'keeps';
-                  } else if (array_conditon) {
-                    return 'our';
-                  }
-                  return a;
+                return a;
+              }
+            ];
+          }
+        }),
+        () => ({
+          level3() {
+            return [
+              (a:any) => {
+                const array_condition = [3];
+                if (a === '2') {
+                  a = 'keeps';
+                } else if (array_condition) {
+                  return 'our';
                 }
-              ];
-            }
-          };
-        },
-        function () {
-          return {
-            level3() {
-              return [
-                function (a:any) {
-                  const object = {4: 4};
-                  // let regex = /5/
-                  if (a['4'] === object['4']) {
-                    return 'minds';
-                  }
+                return a;
+              }
+            ];
+          }
+        }),
+        () => ({
+          level3() {
+            return [
+              (a:any) => {
+                const object = {4: 4};
+                // let regex = /5/
+                if (a['4'] === object['4']) {
+                  return 'minds';
+                }
 
-                  return 'sharp';
+                return 'sharp';
+              }
+            ];
+          }
+        }),
+        () => ({
+          level3() {
+            return {
+              0(a:any) {
+                if (a() === 6) {
+                  return 'and';
                 }
-              ];
-            }
-          };
-        },
-        function () {
-          return {
-            level3() {
-              return {
-                0(a:any) {
-                  if (a() === 6) {
-                    return 'and';
-                  }
-                },
-                zero(a:any) {
-                  if (a === null) {
-                    return 'body';
-                  }
+              },
+              zero(a:any) {
+                if (a === null) {
+                  return 'body';
                 }
-              };
-            }
-          };
-        },
+              }
+            };
+          }
+        }),
       ],
       level3: ['0',
         '1',
@@ -201,12 +181,12 @@ export function mixedReferencesA() {
  */
 export function mixedReferencesB() {
   const data : any = [
-    function (a: any[]) {
-      if (data.length == 1) {
+    () => {
+      if (data.length === 1) {
         data.push(
           '',
-          (a: any[]) => {
-            if (data.length == 3) {
+          () => {
+            if (data.length === 3) {
               data.push({table: 'tennis'}, ['is', 'hard']);
             } else {
               data.push('', '', '...', 'AI cannot solve this problem');
@@ -243,6 +223,6 @@ export function mixedReferencesB() {
  *
  * Task: Pass the test by evaluating the data passed through and calling the recursive functions
  */
-export function recursion(callback : any) {
-  // @TODO not ready yet!
+export function recursion() {
+
 }
