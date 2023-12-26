@@ -14,20 +14,26 @@
  * Tip: https://images.datacamp.com/image/upload/v1665049689/Regular_Expressions_Cheat_Sheet_b95aae6488.png
  */
 export function regularExpressionsA() {
-  const regExpA = /changeme/;
-  const regExpB = /changeme/;
-  const regExpC = /changeme/;
+  const regExpA = /table tennis defenders do not like pace change/gi;
+  const regExpB = /attackers|risk|energy|depletion/gi;
+  const regExpC = /[ .]/g;
 
-  const reverseDataA = ``;
+  const reverseDataA = '';
   const reverseDataB = ``;
 
   return [
-    regExpA.test('table tennis defenders do not like pace change'),
+    regExpA.test('table tennis defenders do not like pace change'), // true (already pass)
+
     /^[a-z|]+$/.test(regExpB.source), // constraint test for `regExpB`
+
     'table tennis Attackers are at risk of energy Depletion'.match(regExpB),
+
     'Table tennis tournaments uncover all your weaknesses.'.match(regExpC),
+
     /^\w+\n([A-Z]{2}nn[A-Z]{2})\nis\n.*!$/.test(reverseDataA),
+    // it should return true,
     // eslint-disable-next-line
+
     (new RegExp(
       Array(3)
         .join('0')
@@ -36,6 +42,7 @@ export function regularExpressionsA() {
         .join('\n'),
       'img'
     )).test(reverseDataB),
+    // it should return true
   ];
 }
 
