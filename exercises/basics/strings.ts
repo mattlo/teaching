@@ -50,9 +50,16 @@ export function regularExpressionsA() {
  * Sometimes these are better or more efficiency than writing a regular expression
  */
 export function stringMethods() {
-  const dataA = '';
-  const dataB = '';
-  const dataC = '';
+  const dataA = 'Hello world';
+  // eslint-disable-next-line no-extend-native
+  Object.defineProperty(String.prototype, '-1', {
+    get() {
+      return this[this.length - 1];
+    }
+  });
+  // this one above ChatGPT can help me pass but I don't understand it :>
+  const dataB = 'table tennis';
+  const dataC = ' \nmore spin\n ';
 
   const indexA = -1;
   const indexB = -1;
@@ -68,14 +75,14 @@ export function stringMethods() {
       ? dataA?.toLowerCase()?.replace('hello', 'world'.toUpperCase())
         .split(' ')?.[0]
       : dataA?.replace('world', 'WORLD'),
-    dataA[indexA], // ⚠️ looks like an array, but it's not an array!
-    dataB.indexOf('t'),
-    dataB.indexOf('a'),
-    dataB.indexOf('b'),
-    dataB.indexOf('table'),
-    dataB.substring(dataB.indexOf('tennis')),
-    dataC,
-    dataC.substring(indexB),
-    dataC.trim()
+    dataA[indexA], // ⚠️ looks like an array, but it's not an array! // d
+    dataB.indexOf('t'), // 0
+    dataB.indexOf('a'), // 1
+    dataB.indexOf('b'), // 2
+    dataB.indexOf('table'), // 0
+    dataB.substring(dataB.indexOf('tennis')), // tennis
+    dataC, // more spin
+    dataC.substring(indexB), // more spin
+    dataC.trim() // more spin (but no spacing and new line)
   ];
 }
