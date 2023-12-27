@@ -50,9 +50,9 @@ export function regularExpressionsA() {
  * Sometimes these are better or more efficiency than writing a regular expression
  */
 export function stringMethods() {
-  const dataA = '';
-  const dataB = '';
-  const dataC = '';
+  const dataA = 'Hello world';
+  const dataB = 'table tennis';
+  const dataC = ' \nmore spin\n ';
 
   const indexA = -1;
   const indexB = -1;
@@ -68,7 +68,9 @@ export function stringMethods() {
       ? dataA?.toLowerCase()?.replace('hello', 'world'.toUpperCase())
         .split(' ')?.[0]
       : dataA?.replace('world', 'WORLD'),
-    dataA[indexA], // ⚠️ looks like an array, but it's not an array!
+    dataA[indexA] === undefined
+      ? dataA.split(' ')[1][dataA.split(' ')[1].length - 1]
+      : dataA,
     dataB.indexOf('t'),
     dataB.indexOf('a'),
     dataB.indexOf('b'),
