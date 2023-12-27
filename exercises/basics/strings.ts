@@ -52,7 +52,7 @@ export function regularExpressionsA() {
 export function stringMethods() {
   const dataA = 'Hello world';
   const dataB = 'table tennis';
-  const dataC = ' \nmore spin\n ';
+  const dataC = '\nmore spin\n ';
 
   const indexA = -1;
   const indexB = -1;
@@ -76,7 +76,7 @@ export function stringMethods() {
     dataB.indexOf('b'),
     dataB.indexOf('table'),
     dataB.substring(dataB.indexOf('tennis')),
-    dataC,
+    (' ').concat(dataC),
     dataC.substring(indexB),
     dataC.trim()
   ];
