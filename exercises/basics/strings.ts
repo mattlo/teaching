@@ -18,8 +18,8 @@ export function regularExpressionsA() {
   const regExpB = /attackers|risk|energy|depletion/gi;
   const regExpC = /[ .]/g;
 
-  const reverseDataA = '';
-  const reverseDataB = ``;
+  const reverseDataA = '888\nTTnnTT\nis\n!';
+  const reverseDataB = `ball 0\nball 1\nball 4`;
 
   return [
     regExpA.test('table tennis defenders do not like pace change'), // true (already pass)
@@ -31,7 +31,6 @@ export function regularExpressionsA() {
     'Table tennis tournaments uncover all your weaknesses.'.match(regExpC),
 
     /^\w+\n([A-Z]{2}nn[A-Z]{2})\nis\n.*!$/.test(reverseDataA),
-    // it should return true,
     // eslint-disable-next-line
 
     (new RegExp(
