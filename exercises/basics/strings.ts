@@ -52,9 +52,9 @@ export function regularExpressionsA() {
 export function stringMethods() {
   const dataA = 'Hello world';
   const dataB = 'table tennis';
-  const dataC = '\nmore spin\n ';
+  const dataC = ' \nmore spin\n ';
 
-  const indexA = -1;
+  const indexA = dataA.length - 1;
   const indexB = -1;
 
   return [
@@ -68,16 +68,14 @@ export function stringMethods() {
       ? dataA?.toLowerCase()?.replace('hello', 'world'.toUpperCase())
         .split(' ')?.[0]
       : dataA?.replace('world', 'WORLD'),
-    dataA[indexA] === undefined
-      ? dataA.split(' ')[1][dataA.split(' ')[1].length - 1]
-      : dataA,
+    dataA[indexA], // it's not an array
     dataB.indexOf('t'),
     dataB.indexOf('a'),
     dataB.indexOf('b'),
     dataB.indexOf('table'),
     dataB.substring(dataB.indexOf('tennis')),
-    (' ').concat(dataC),
-    dataC.substring(indexB),
+    dataC,
+    dataC.substring(indexB), // true
     dataC.trim()
   ];
 }
