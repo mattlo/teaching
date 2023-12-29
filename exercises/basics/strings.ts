@@ -14,12 +14,12 @@
  * Tip: https://images.datacamp.com/image/upload/v1665049689/Regular_Expressions_Cheat_Sheet_b95aae6488.png
  */
 export function regularExpressionsA() {
-  const regExpA = /changeme/;
-  const regExpB = /changeme/;
-  const regExpC = /changeme/;
+  const regExpA = /table tennis defenders do not like pace change/gi;
+  const regExpB = /attackers|risk|energy|depletion/gi;
+  const regExpC = /[ .]/g;
 
-  const reverseDataA = ``;
-  const reverseDataB = ``;
+  const reverseDataA = `888\\nTTnnTT\\nis\\n!`;
+  const reverseDataB = `ball 0\\nball 1\\nball 4`;
 
   return [
     regExpA.test('table tennis defenders do not like pace change'),
@@ -44,12 +44,12 @@ export function regularExpressionsA() {
  * Sometimes these are better or more efficiency than writing a regular expression
  */
 export function stringMethods() {
-  const dataA = '';
-  const dataB = '';
-  const dataC = '';
+  const dataA = 'Hello world';
+  const dataB = 'table tennis';
+  const dataC = ' \nmore spin\n ';
 
-  const indexA = -1;
-  const indexB = -1;
+  const indexA = dataA.length - 1;
+  const indexB = 1;
 
   return [
     dataA.split(' ')?.[0]?.toUpperCase()
