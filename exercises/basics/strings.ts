@@ -55,7 +55,7 @@ export function stringMethods() {
   const dataC = ' \nmore spin\n ';
 
   const indexA = dataA.length - 1;
-  const indexB = -1;
+  const indexB = 1;
 
   return [
     dataA.split(' ')?.[0]?.toUpperCase()
@@ -75,7 +75,7 @@ export function stringMethods() {
     dataB.indexOf('table'),
     dataB.substring(dataB.indexOf('tennis')),
     dataC,
-    dataC.substring(indexB), // true
+    dataC.substring(indexB),
     dataC.trim()
   ];
 }
