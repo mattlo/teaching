@@ -20,7 +20,7 @@
     "@jest/globals": "^29.7.0"
   },
   "scripts": {
-    "lint": "eslint 'exercises/**/*(*.js|*.jsx|*.ts|*.tsx)' --max-warnings=0",
+    "lint": "eslint exercises --max-warnings=0",
     "test": "npm run lint && jest"
   }
 }
