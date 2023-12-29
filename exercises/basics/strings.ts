@@ -18,8 +18,8 @@ export function regularExpressionsA() {
   const regExpB = /attackers|risk|energy|depletion/gi;
   const regExpC = /[ .]/g;
 
-  const reverseDataA = `888\\nTTnnTT\\nis\\n!`;
-  const reverseDataB = `ball 0\\nball 1\\nball 4`;
+  const reverseDataA = `888\nTTnnTT\nis\n!`;
+  const reverseDataB = `ball 0\nball 1\nball 4`;
 
   return [
     regExpA.test('table tennis defenders do not like pace change'),
